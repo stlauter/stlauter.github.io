@@ -5,75 +5,98 @@
 <title>Catalogue</title>
 
 <style>
-body { background:#0e0e0e; color:#e8e6e3; font-family:Georgia, serif; margin:0; }
-header { text-align:center; padding:30px; border-bottom:1px solid #444; }
+body {
+    margin:0;
+    background:#0b0b0b;
+    color:#e6dccf;
+    font-family: Georgia, serif;
+}
+
+.container {
+    max-width:900px;
+    margin:60px auto;
+    padding:40px;
+    background:#111;
+}
+
 input {
+    width:100%;
     padding:10px;
-    width:250px;
-    margin-top:10px;
+    margin-bottom:20px;
     background:#1a1a1a;
     border:1px solid #444;
     color:white;
 }
+
 .poem {
-    max-width:800px;
-    margin:30px auto;
-    padding:0 20px;
-    border-left:2px solid #c2b280;
+    border-bottom:1px solid #333;
+    padding:15px 0;
 }
-.date { color:#888; font-size:0.8em; }
-a { color:#c2b280; text-decoration:none; }
+
+a {
+    color:#c2b280;
+    text-decoration:none;
+}
+
+.date {
+    font-size:0.8em;
+    color:#888;
+}
 </style>
 
 </head>
 
 <body>
 
-<header>
-    <h1>Catalogue</h1>
-    <a href="index.html">← Back Home</a>
-    <br><br>
-    <input type="date" id="searchDate">
-</header>
+<div class="container">
+
+<h1>Catalogue</h1>
+<a href="index.html">← Back</a>
+
+<br><br>
+<input type="date" id="searchDate">
 
 <div id="results"></div>
+
+</div>
 
 <script>
 const poems = [
     {
         title: "First Entry",
         date: "2026-03-10",
-        content: "Your writing here..."
+        file: "poem1.html"
     },
     {
         title: "Second Entry",
         date: "2026-02-15",
-        content: "Another poem..."
+        file: "poem2.html"
     }
 ];
 
-const resultsDiv = document.getElementById("results");
-const searchInput = document.getElementById("searchDate");
+// SORT newest → oldest automatically
+poems.sort((a,b) => new Date(b.date) - new Date(a.date));
 
-function displayPoems(filtered) {
+const resultsDiv = document.getElementById("results");
+
+function display(list) {
     resultsDiv.innerHTML = "";
-    filtered.forEach(p => {
+    list.forEach(p => {
         resultsDiv.innerHTML += `
             <div class="poem">
-                <h3>${p.title}</h3>
+                <a href="${p.file}"><h3>${p.title}</h3></a>
                 <div class="date">${p.date}</div>
-                <p>${p.content}</p>
             </div>
         `;
     });
 }
 
-displayPoems(poems);
+display(poems);
 
-searchInput.addEventListener("input", () => {
-    const value = searchInput.value;
-    const filtered = poems.filter(p => p.date === value);
-    displayPoems(filtered);
+// SEARCH
+document.getElementById("searchDate").addEventListener("input", e => {
+    const val = e.target.value;
+    display(poems.filter(p => p.date === val));
 });
 </script>
 
