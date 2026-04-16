@@ -2,45 +2,88 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Archive of Writings</title>
+<title>Manuscript Archive</title>
+
 <style>
-body { background:#0e0e0e; color:#e8e6e3; font-family:Georgia, serif; margin:0; }
-header { text-align:center; padding:40px; border-bottom:1px solid #444; }
-nav a { margin:0 15px; color:#c2b280; text-decoration:none; }
-section { max-width:800px; margin:40px auto; padding:0 20px; }
-.poem { margin-bottom:40px; border-left:2px solid #c2b280; padding-left:15px; }
-footer { text-align:center; padding:30px; border-top:1px solid #444; color:#777; }
+body {
+    margin:0;
+    background:#0b0b0b;
+    color:#e6dccf;
+    font-family: "Georgia", serif;
+}
+
+.container {
+    max-width:900px;
+    margin:60px auto;
+    padding:40px;
+    background:#111;
+    box-shadow:0 0 40px rgba(0,0,0,0.8);
+}
+
+h1 {
+    text-align:center;
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+.subtitle {
+    text-align:center;
+    color:#9b8f7a;
+    margin-bottom:40px;
+}
+
+nav {
+    text-align:center;
+    margin-bottom:40px;
+}
+
+nav a {
+    margin:0 20px;
+    color:#c2b280;
+    text-decoration:none;
+}
+
+.entry {
+    border-left:2px solid #c2b280;
+    padding-left:15px;
+    margin-bottom:30px;
+}
+
+footer {
+    text-align:center;
+    margin-top:40px;
+    color:#777;
+}
 </style>
+
 </head>
 
 <body>
 
-<header>
-    <h1>Archive of Writings</h1>
-    <nav>
-        <a href="#favorite">Favorite</a>
-        <a href="catalogue.html">Catalogue</a>
-        <a href="#recent">Recent</a>
-    </nav>
-</header>
+<div class="container">
 
-<section id="favorite">
-    <h2>Author's Favorite</h2>
-    <div class="poem">
-        <p>Your best piece goes here.</p>
-    </div>
-</section>
+<h1>ARCHIVE</h1>
+<div class="subtitle">A private collection of writings</div>
 
-<section id="recent">
-    <h2>Recent Writings</h2>
-    <div class="poem">
-        <p>Your latest writing goes here.</p>
-    </div>
-</section>
+<nav>
+    <a href="catalogue.html">Catalogue</a>
+</nav>
+
+<div class="entry">
+    <h3>Author’s Favorite</h3>
+    <p>Place your most meaningful piece here… something timeless.</p>
+</div>
+
+<div class="entry">
+    <h3>Most Recent</h3>
+    <p>Your latest writing appears here.</p>
+</div>
 
 <footer>
-    <p>© Your Name — A personal archive</p>
+    <p>© Your Name</p>
 </footer>
+
+</div>
 
 </body>
 </html>
