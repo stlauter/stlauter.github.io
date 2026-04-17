@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Poem</title>
+
+<style>
+body {
+    background:#0b0b0b;
+    color:#e6dccf;
+    font-family: Georgia, serif;
+    max-width:700px;
+    margin:80px auto;
+    line-height:1.8;
+}
+
+h1 {
+    text-align:center;
+}
+
+.date {
+    text-align:center;
+    color:#888;
+    margin-bottom:40px;
+}
+
+a {
+    color:#c2b280;
+}
+
+.poem {
+    white-space: pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<a href="catalogue.html">← Back</a>
+
+<h1 id="title"></h1>
+<div class="date" id="date"></div>
+
+<p class="poem" id="content"></p>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+fetch("poems.json")
+  .then(res => res.json())
+  .then(poems => {
+
+    const poem = poems.find(p => p.id === id);
+
+    if (poem) {
+        document.getElementById("title").innerText = poem.title;
+        document.getElementById("date").innerText = poem.date;
+        document.getElementById("content").innerText = poem.content;
+    } else {
+        document.getElementById("content").innerText = "Poem not found.";
+    }
+});
+</script>
+
+</body>
+</html>
