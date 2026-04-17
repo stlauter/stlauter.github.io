@@ -33,14 +33,21 @@ h1 {
 }
 
 nav {
-    text-align:center;
-    margin-bottom:40px;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 1px;
 }
 
 nav a {
-    margin:0 20px;
-    color:#c2b280;
-    text-decoration:none;
+    color: #c2b280;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:not(:last-child)::after {
+    content: " | ";
+    margin-left: 10px;
+    opacity: 0.7;
 }
 
 .entry {
