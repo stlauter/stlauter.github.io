@@ -61,43 +61,37 @@ a {
 </div>
 
 <script>
-const poems = [
-    {
-        title: "High Regards",
-        date: "2026-04-16",
-        file: "poem1.html"
-    },
-    {
-        title: "Second Entry",
-        date: "2026-02-15",
-        file: "poem2.html"
-    }
-];
-
-// SORT newest → oldest automatically
-poems.sort((a,b) => new Date(b.date) - new Date(a.date));
-
 const resultsDiv = document.getElementById("results");
+
+// LOAD JSON
+fetch("poems.json")
+  .then(res => res.json())
+  .then(poems => {
+
+    // sort newest → oldest
+    poems.sort((a,b)=> new Date(b.date) - new Date(a.date));
+
+    display(poems);
+
+    document.getElementById("searchDate").addEventListener("input", e => {
+        const val = e.target.value;
+        display(poems.filter(p => p.date === val));
+    });
+});
 
 function display(list) {
     resultsDiv.innerHTML = "";
     list.forEach(p => {
         resultsDiv.innerHTML += `
             <div class="poem">
-                <a href="${p.file}"><h3>${p.title}</h3></a>
+                <a href="poem.html?id=${p.id}">
+                    <h3>${p.title}</h3>
+                </a>
                 <div class="date">${p.date}</div>
             </div>
         `;
     });
 }
-
-display(poems);
-
-// SEARCH
-document.getElementById("searchDate").addEventListener("input", e => {
-    const val = e.target.value;
-    display(poems.filter(p => p.date === val));
-});
 </script>
 
 </body>
