@@ -31,7 +31,6 @@ input {
 .poem {
     border-bottom:1px solid #333;
     padding:15px 0;
-    transition: opacity 0.6s ease;
 }
 
 a {
@@ -82,25 +81,15 @@ fetch("poems.json")
 
 function display(list) {
     resultsDiv.innerHTML = "";
-
-    const now = new Date();
-
     list.forEach(p => {
-        const poemDate = new Date(p.date);
-
-        const diffDays = (now - poemDate) / (1000 * 60 * 60 * 24);
-
-        let opacity = 1 - (diffDays / 365);
-        opacity = Math.max(0.4, opacity);
-
-        resultsDiv.innerHTML += `
-            <div class="poem" style="opacity:${opacity}">
+        resultsDiv.innerHTML += 
+            <div class="poem">
                 <a href="poem.html?id=${p.id}">
                     <h3>${p.title}</h3>
                 </a>
                 <div class="date">${p.date}</div>
             </div>
-        `;
+        ;
     });
 }
 </script>
