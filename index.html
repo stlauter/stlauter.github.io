@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -44,21 +44,72 @@ nav a {
     margin: 0 10px;
 }
 
+nav a:visited {
+    color: #c2b280;
+}
+
 nav a:not(:last-child)::after {
     content: " | ";
     margin-left: 10px;
     opacity: 0.7;
 }
 
-.entry {
-    border-left:2px solid #c2b280;
-    padding-left:15px;
-    margin-bottom:30px;
+/* Tone */
+.tone {
+    text-align:center;
+    margin-top:40px;
+    line-height:1.8;
+    color:#bbb;
+}
+
+/* Divider */
+.divider {
+    width:60px;
+    height:1px;
+    background:#c2b280;
+    margin:60px auto;
+    opacity:0.5;
+}
+
+/* Entry Points */
+.entry-points {
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    margin:80px 0;
+    text-align:center;
+}
+
+.entry-points a {
+    color:#c2b280;
+    text-decoration:none;
+}
+
+.entry-points a:visited {
+    color:#c2b280;
+}
+
+.entry-points p {
+    font-size:0.9em;
+    color:#aaa;
+}
+
+.entry-points a:hover {
+    opacity:0.6;
+}
+
+/* Definition */
+.definition {
+    max-width:500px;
+    margin:0 auto;
+    text-align:center;
+    line-height:1.8;
+    color:#aaa;
 }
 
 footer {
     text-align:center;
-    margin-top:40px;
+    margin-top:60px;
     color:#777;
 }
 </style>
@@ -78,46 +129,39 @@ footer {
     <a href="author.html">Author</a>
 </nav>
 
-<div class="entry">
-    <h3>Author’s Favorite:</h3>
-    <p>Still thinking on this one.</p>
+<p class="tone">
+A record not of events,<br>
+but of interpretation.
+</p>
+
+<div class="divider"></div>
+
+<div class="entry-points">
+    <a href="catalogue.html">
+        <h3>Catalogue</h3>
+        <p>All entries, arranged by time</p>
+    </a>
+
+    <a href="volumes.html">
+        <h3>Volumes</h3>
+        <p>Grouped by original journals</p>
+    </a>
+
+    <a href="author.html">
+        <h3>Author</h3>
+        <p>Context and intent</p>
+    </a>
 </div>
 
-<div class="entry">
-    <h3>Most Recent:</h3>
-    <p><p>
-High Regards:<br><br> 
-How much more prolific,<br>
-of a writer,<br>
-I could become?<br><br>
+<div class="divider"></div>
 
-If only advanced by age.<br><br>
-
-I searched longingly<br>
-for some poetry to indulge in,<br>
-and what I found wasn't satisfactory.<br><br>
-
-These poets, albeit literate and eloquent,<br>
-lacked abstraction—<br>
-lacking the romance that writing brings.<br><br>
-
-Rooted solely in events,<br>
-poetry inspired by experience,<br>
-rather than expression of misunderstanding.<br><br>
-
-And I found this to be disappointing.<br><br>
-
-Such writers are heralded as great—<br>
-who acclaimed?<br><br>
-
-Perhaps I am lacking<br>
-in the richness of my perception,<br>
-but these writers of acclaim fall short;<br><br>
-
-of my artistic glory.
+<p class="definition">
+This archive does not document experience,<br>
+but the interpretation of it.
+<br><br>
+It is not clarity that is pursued,<br>
+but the articulation of misunderstanding.
 </p>
-</p>
-</div>
 
 <footer>
     <p>© Kenneth Lauter</p>
@@ -127,3 +171,4 @@ of my artistic glory.
 
 </body>
 </html>
+
